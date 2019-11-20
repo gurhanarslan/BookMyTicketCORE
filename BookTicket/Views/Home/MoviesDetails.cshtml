@@ -1,0 +1,24 @@
+﻿@model Movies
+@{
+    ViewData["Title"] = "MoviesDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container mt-5" >
+    <div class="row">
+        <div class="col-12 col-md-4">
+            <img src="~/img/@Model.Image" class="w-100 rounded" alt="Alternate Text" />
+        </div>
+        <div class="col-12 col-md-8">
+            <div class="form-group">
+                <p>Yönetmen : <strong>@Model.MoviesDirector</strong></p>
+                <p>Vizyon Tarihi : <strong>@Model.FilmDate</strong></p>
+                <p>Film Seansları : <strong>@Model.MoviesSeans</strong></p>
+                <p> <a asp-action="BiletHole" asp-controller="Home" asp-route-title="@Model.MoviesName" class="btn btn-warning">Biletini Al</a></p>
+                <p class=" bg-darktrans p-2 rounded text-justify"> <strong> Film Özeti :</strong>        @Model.MoviesDescription</p>
+            </div>
+        </div>
+    </div>
+    
+</div>

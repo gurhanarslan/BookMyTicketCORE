@@ -1,0 +1,77 @@
+body {
+      background-image:url(/img/bg5.jpg);
+      background-repeat:no-repeat;
+      background-size: cover;
+   }
+
+   .mt-10{
+       margin-top: 10rem;
+   }
+
+.bg-pink {
+    background-color: #fd35a0 !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
+}
+   .navbar-turq .nav-link{
+   color:rgba(255,255,255,.5)
+
+   }
+
+   .navbar-turq .nav-link:hover{
+       background-color: rgba(0, 140, 255, 0.575);
+       transition: all 0.5s linear;
+       border-radius: 5px;
+   }
+.gray {
+    color: rgba(255, 255, 255, 0.747);
+    background-color: rgba(0, 140, 255, 0.575);
+}
+
+   .btn .btn-primary:hover{
+    background-color: rgba(0, 140, 255, 0.575);
+    transition: all 0.5s linear;
+    border-radius: 5px;
+}
+
+.bg-darktrans {
+    background-color: rgba(0, 140, 255, 0.575);
+}
+
+.female::before {
+    content: "\f182";
+    font-family: FontAwesome;
+    font-size: 30px;
+    color: white;
+}
+.male::before {
+    content: "\f183";
+    font-family: FontAwesome;
+    font-size: 30px;
+    color: white;
+}
+.go::before {
+    content: "\f70c";
+    font-family: FontAwesome;
+    font-size: 30px;
+    color: white;
+}
+
+.userfree::before {
+    content: "\f007";
+    font-family: FontAwesome;
+    font-size: 30px;
+    color: white;
+}
+.userfull::before {
+    content: "\f007";
+    font-family: FontAwesome;
+    font-size: 30px;
+    color: red;
+}
+.userchoose::before {
+    content: "\f007";
+    font-family: FontAwesome;
+    font-size: 30px;
+    color: yellow;
+}
+

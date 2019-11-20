@@ -1,0 +1,111 @@
+﻿@model IEnumerable<Ticket>
+
+@{
+    ViewData["Title"] = "BiletHole";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section sections{
+
+    <script>
+
+        $(".userfree").click(function () {
+            
+            $(this).toggleClass("userfree");
+            $(this).toggleClass("userchoose");
+            $("#price").toggleClass("d-none");
+            $("#price").toggleClass("d-inline");
+            if ($(this).hasClass("userchoose")) {
+                $("#submit").removeClass("btn-danger");
+                $("#submit").removeClass("disabled");
+                $("#submit").addClass("btn-primary");
+                $("#submit").val("Bilet Seçtiniz");
+
+                if ($(".ticket").hasClass("userchoose")) {
+                    var result = $(this).val();
+                    $("#submit").val(result);
+                }
+                else {
+                    console.log("seçili eleman yok!")
+                }
+               
+               
+            }
+            else {
+                $("#submit").addClass("btn-danger");
+                $("#submit").addClass("disabled");
+                $("#submit").removeClass("btn-primary");
+            }
+            
+        })
+
+     
+    </script>
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-4">
+            @await Component.InvokeAsync("SliderFirstSlider")
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="text-center"> <span class="userchoose mx-2"> Seçili Koltuk</span> <span class="userfull mx-2">Dolu Koltuk</span> <br /> <span class=" userfree mx-2"> Boş Koltuk</span></div>
+
+            <div class="text-danger text-center"><strong>* 1 Bilet Seçiniz.</strong></div>
+            @if (User.Identity.IsAuthenticated)
+            {
+            <div class="text-center"><strong class="text-success mt-3 mx-5">Hoşgeldiniz, @User.Identity.Name</strong> <br /></div> 
+            }
+            else
+            {
+
+
+            }
+
+
+            @foreach (var item in Model)
+            {
+                @if (item.FullorEmpty == false)
+                {
+                    <button value="@item.BiletNumberId" name="@item.BiletNumberId" id="ticket" class="userfree ticket bg-transparent border-0"></button>
+                    <input type="hidden" class="ticket2" name="" value="@item.BiletNumberId" />
+                }
+                else
+                {
+                    <span class="userfull"></span>
+
+                }
+
+            }
+
+
+
+
+
+            <form asp-action="TicketStatus" method="post">
+
+                <div asp-validation-summary="All" class="mt-3"></div>
+
+
+                <button class="btn btn-danger disabled mt-5 w-100" value="" name="BiletNumberId" id="submit">Bilet Satın Al</button>
+
+
+            </form>
+
+
+        </div>
+
+
+        
+        <div class="col-12 col-md-4 mt-5 ">
+            <div class="d-none mt-5" id="price">
+                <strong> Bilet Fiyatı : 14TL</strong>
+
+            </div>
+        </div>
+       
+
+    </div>
+</div>
+<div class="user"></div>
+

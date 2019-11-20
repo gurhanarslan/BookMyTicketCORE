@@ -1,0 +1,101 @@
+﻿@model Movies
+@{
+    ViewData["Title"] = "Update to Movie";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-4"></div>
+        <div class="col-12 col-md-4">
+            <form asp-action="MoviesUpdate" method="post" enctype="multipart/form-data">
+
+                <input type="hidden" name="MoviesId" value="@Model.MoviesId" />
+
+                <div class="form-group">
+                    <label asp-for="MoviesName"> Film Adı </label>
+                    <input asp-for="MoviesName" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="MoviesDirector"> Film Yönetmeni </label>
+                    <input asp-for="MoviesDirector" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="MoviesSeans"> Film Seansları </label>
+                    <input asp-for="MoviesSeans" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="MoviesDescription"> Film İçeriği </label>
+                    <input asp-for="MoviesDescription" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="CategoryName"> Film Özelliği </label>
+                    <select asp-for="CategoryName" class="form-control">
+                        <option value="" disabled selected>Seçiniz..</option>
+                        <option value="Vizyonda">Vizyonda</option>
+                        <option value="UpComing">Yakın Tarihte Vizyona Girecek.</option>
+                        <option value="UpComing2020">2020 Yılında Vizyona Girecek.</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CategoryId">Category</label>
+                    <select class="form-control" asp-for="CategoryId" asp-items="ViewBag.Categories">
+                        <option disabled selected value="">Seçiniz</option>
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FilmDate"> Film Vizyon Tarihi </label>
+                    <input asp-for="FilmDate" class="form-control" />
+                </div>
+                
+                <div class="form-check mt-2">
+                    <label class="form-check-label">
+                        <input asp-for="IsApproved" class="form-check-input" />
+                        Onayla
+                    </label>
+
+                </div>
+
+
+                <div>
+                    <img src="~/img/@Model.Image" width="120" alt="Alternate Text" />
+                    <input type="file" name="file" id="file" class="form-control" />
+                </div>
+
+                <div class="form-check mt-2">
+                    <label class="form-check-label">
+                        <input asp-for="IsSliderHome" class="form-check-input" />
+                        Ana Sayfa'da Slider Olarak Eklensin mi?
+                    </label>
+
+                </div>
+
+
+
+                <div class="form-check mt-2">
+                    <label class="form-check-label">
+                        <input asp-for="IsSliderLogin1" class="form-check-input" />
+                        Login&Register  1.Slidera Eklensin mi?
+                    </label>
+                </div>
+                <div class="form-check mt-2">
+                    <label class="form-check-label">
+                        <input asp-for="IsSliderLogin2" class="form-check-input" />
+                        Login&Register 2.Slidera Eklensin mi?
+                    </label>
+
+                </div>
+
+
+                <input type="submit" value="Film Oluştur" class="form-control" />
+            </form>
+
+
+        </div>
+        <div class="col-12 col-md-4"></div>
+    </div>
+</div>

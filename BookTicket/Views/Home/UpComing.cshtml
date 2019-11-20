@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Movies>
+@{
+    ViewData["Title"] = "Movies";
+}
+
+
+<div class="container">
+
+
+    <div class="row text-center">
+     
+        @foreach (var item in Model)
+        {
+
+
+            <div class="col-1 d-inline d-md-none"></div>
+            <div class="col-10 col-md-4 col-lg-3 mt-5  ">
+                <a asp-action="MoviesDetails" asp-controller="Home" asp-route-title="@item.MoviesName">
+                    <div class="card bg-transparent text-light border-primary" style="width: 17rem">
+                        <img src="~/img/@item.Image" class="card-img-top" alt="...">
+                        <div class="card-body ">
+                            <h5 class="card-title ">@item.MoviesName</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-1 d-inline d-md-none"></div>
+        }
+
+
+
+
+    </div>
+
+</div>
